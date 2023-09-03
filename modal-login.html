@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal-Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+
+        body{
+            background-image: url(login.jpeg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #heading {
+            display: flex;
+            justify-content: center;
+        }
+
+        label {
+            display: flex;
+            justify-content: center;
+
+        }
+        b{
+            font-style: italic;
+            color: rgb(36, 36, 114);
+        }
+        label{
+            font-style: italic;
+            color: rgb(36, 36, 114);
+            
+        }
+        .modal-content{
+            background-color: rgb(226, 243, 238);
+        }
+
+        input {
+            display: flex;
+            justify-content: center;
+
+            border-radius: 10px;
+            padding-left: 40px;
+            background-color: aquamarine;
+        }
+
+        .button {
+            margin-top: 5px;
+            background-color: aqua;
+            border-radius: 20px;
+            padding: 7px;
+        }
+
+        #logout {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Login Page</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <div class="col-xs-3">
+                    <button  class=" button  btn-btn-primary" data-toggle="modal" data-target="#id6"> Login</button>
+                    <div class="modal fade" id="id6">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="modal-title">
+                                        <button class="close" data-dismiss="modal">x</button>
+                                        <h3 id="heading"><b>Login Here</b></h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            <label for="id1">Username:
+                                                <input type="text" placeholder="Enter your name" name="" id="id1">
+                                            </label>
+                                            <br>
+                                            <label for="id2">Password:
+                                                <input type="password" placeholder="Enter your password" name=""
+                                                    id="id2">
+                                            </label>
+                                            <br>
+                                            <label for="id3">Email:
+                                                <input type="email" placeholder="Enter your email" name="" id="id3">
+                                            </label>
+                                            <br>
+
+                                        </p>
+
+
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button onclick="login()" class="btn btn-primary" id="login">Login </button>
+                                        <button id="logout" onclick="logout()" class="btn btn-danger">Logout </button>
+
+
+
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </ul>
+        </div>
+    </nav>
+
+    <script type="text/javascript">
+        var uname = localStorage.getItem("username");
+        if (uname) {
+            document.getElementById('logout').style.display = 'inline-block'
+            document.getElementById('login').style.display = 'none';
+
+            document.getElementById('id1').style.display = 'none';
+            document.getElementById('id2').style.display = 'none';
+            document.getElementById('id3').style.display = 'none';
+
+
+        }
+        function login() {
+            var name = document.getElementById('id1').value;
+            const pass = document.getElementById('id2').value;
+            var email = document.getElementById('id3').value;
+            console.log(name);
+            console.log(pass);
+            console.log(email);
+
+            localStorage.setItem("username", name);
+            localStorage.setItem("password", pass);
+            localStorage.setItem("Email", email);
+
+            document.getElementById('logout').style.display = "inline-block";
+            document.getElementById('login').style.display = "none";
+
+
+            // document.getElementById('id1').style.display = 'none';
+            // document.getElementById('id2').style.display = 'none';
+            // document.getElementById('id3').style.display = 'none';
+
+            document.getElementById('id1').value="";
+            document.getElementById('id2').value="";
+            document.getElementById('id3').value="";
+        }
+
+        function logout() {
+
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            localStorage.removeItem("Email");
+            document.getElementById('logout').style.display = "none";
+            document.getElementById('login').style.display = 'inline-block';
+            document.getElementById('id1').style.display = "inline-block";
+            document.getElementById('id2').style.display = "inline-block";
+            document.getElementById('id3').style.display = "inline-block";
+        }
+
+
+    </script>
+
+</body>
+
+</html>

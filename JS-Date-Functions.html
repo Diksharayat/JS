@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>js date functions</title>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+		
+		var d = new Date();
+		console.log(d);
+
+		var year = d.getFullYear();
+		console.log(year);
+
+		var hours = d.getHours();
+		console.log(hours);
+
+		var minutes = d.getMinutes();
+		console.log(minutes);
+
+		var date = d.getDate();
+		console.log(date);
+
+		var month = d.getMonth();
+		var newmonth = month+1;
+		console.log(newmonth);
+
+		var seconds = d.getSeconds();
+		console.log(seconds);
+
+		var ms = d.getMilliseconds();
+		console.log(ms);
+
+		var time = d.getTime();
+		console.log(time);
+
+		var day = d.getDay();
+		console.log(day)
+
+
+		console.log(date + "-" +  newmonth + "-" + year);
+		// console.log(newdate)
+
+
+	</script>
+
+</body>
+</html>

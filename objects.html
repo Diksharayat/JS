@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objects</title>
+</head>
+<body>
+    <script>
+        var obj={name:"diksha",email:'abc@gmail.com',password:'12345'};
+        console.log(obj);
+        console.log(obj.name);
+        console.log(obj.email);
+        console.log(obj.password);
+
+        obj.password='45677';
+        console.log(obj.password);
+
+        delete obj.password;
+        console.log(obj.password);
+
+        Object.assign(obj,{
+                password:'12875'
+            }
+        )
+        console.log(obj);
+    </script>    
+</body>
+</html>
